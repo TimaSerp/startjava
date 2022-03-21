@@ -1,6 +1,6 @@
 public class VariablesTheme {
     public static void main(String[] args) {
-        //Создание переменных и вывод их значений на консоль
+        //Создание переменных и вывод их значений на консоль 
         System.out.println("Создание переменных и вывод их значений на консоль");
         byte windowsVersion = 10;
         short installYear = 2021;
