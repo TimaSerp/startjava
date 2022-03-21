@@ -110,34 +110,34 @@ public class CyclesTheme {
         //Отображение фигур в консоли
         System.out.println();
         System.out.println("Отображение фигур в консоли");
-        char a1 = 42;
-        char b1 = 35;
-        char c1 = 36;
+        char squareSide = 42;
+        char triangleSide = 35;
+        char rhombSide = 36;
         int k = 5;
+        int l = 3;
         for(int i = 1; i <= 5; i++) {
             for(int j = 1; j <= 10; j++) {
-                System.out.print(a1);
+                System.out.print(squareSide);
             }
         System.out.println();
         }
         while(k > 0) {
             for(int i = k; i > 0; i--) {
-                System.out.print(b1);
+                System.out.print(triangleSide);
             }
         System.out.println();
         k--;
         }
-        int l = 3;
         do {
             for(int i = l; i <= 3; i++) {
-                System.out.print(c1);
+                System.out.print(rhombSide);
             }
         System.out.println();
         l--;
         } while(l > 0);
         do {
             for( int i = l; i < 2; i++) {
-                System.out.print(c1);
+                System.out.print(rhombSide);
             }
             System.out.println();
             l++;
@@ -148,15 +148,15 @@ public class CyclesTheme {
         int palindrom = 12321;
         int numberAmount = 5;
         int checkUnit = 10000;
-        boolean check = true;
+        boolean isTheSame = true;
         for(int i = 1; i <= numberAmount / 2; i++) {
             if(palindrom / checkUnit != palindrom % 10) {
-                check = false;
+                isTheSame = false;
             }
             palindrom = (palindrom - checkUnit * (palindrom / checkUnit) - palindrom % 10) / 10;
             checkUnit = checkUnit / 100;
         }
-        if(check) {
+        if(isTheSame) {
             System.out.println("Данное число является палиндромом.");
         } else {
             System.out.println("Данное число не является палиндромом");
