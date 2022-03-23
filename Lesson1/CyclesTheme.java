@@ -143,20 +143,6 @@ public class CyclesTheme {
         System.out.println();
         symbolsInRhombLine--;
         } while(symbolsInRhombLine > 2);
-        // do {
-        //     for(int i = symbolsInRhombLine; i <= 3; i++) {
-        //         System.out.print(rhombSymbol);
-        //     }
-        // System.out.println();
-        // symbolsInRhombLine--;
-        // } while(symbolsInRhombLine > 0);
-        // do {
-        //     for( int i = symbolsInRhombLine; i < 2; i++) {
-        //         System.out.print(rhombSymbol);
-        //     }
-        //     System.out.println();
-        //     symbolsInRhombLine++;
-        // } while(symbolsInRhombLine <= 2);
 
         //Проверка, является ли число палиндромом
         System.out.println("Проверка, является ли число палиндромом");
