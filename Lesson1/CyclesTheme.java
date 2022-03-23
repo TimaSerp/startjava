@@ -4,6 +4,7 @@ public class CyclesTheme {
         System.out.println();
         System.out.println("Подсчет суммы четных и нечетных чисел");
         int count = -10;
+        int countEnd = 21;
         int sumEven = 0;
         int sumOdd = 0;
         do {
@@ -13,7 +14,7 @@ public class CyclesTheme {
                 sumOdd = sumOdd + count;
             }
         count++;
-        } while(count <=21);
+        } while(count <= countEnd);
         System.out.println("Сумма чётных чисел равна " + sumEven + ", а сумма нечётных равна " + sumOdd);
 
         //Вывод чисел между max и min
@@ -40,7 +41,7 @@ public class CyclesTheme {
         } else if(c < a & c < b) {
                 min = c;
         } else {
-            System.out.println("Данные числа равны.");
+            System.out.println("Какие-то числа равны.");
         }
         for(int i = min; i <= max; i++) {
             System.out.println(i);
@@ -51,30 +52,30 @@ public class CyclesTheme {
         System.out.println("Вывод реверсивного числа и суммы его цифр");
         int d = 1234;
         int numberClass = 1000;
-        int reversenumberClass = 1;
+        int reverseNumberClass = 1;
         int sum = 0;
-        int numberOfnumberClass;
+        int numberOfNumberClass;
         int reverseNumber = 0;
         while(d != 0) {
-            numberOfnumberClass = d / numberClass;
-            sum = sum + numberOfnumberClass;
-            reverseNumber = numberOfnumberClass * reversenumberClass + reverseNumber;
+            numberOfNumberClass = d / numberClass;
+            sum = sum + numberOfNumberClass;
+            reverseNumber = reverseNumber + numberOfNumberClass * reverseNumberClass;
             d = d % numberClass;
             numberClass = numberClass / 10;
-            reversenumberClass = reversenumberClass * 10;
+            reverseNumberClass = reverseNumberClass * 10;
         }
         System.out.println("Сумма цифр числа равна " + sum + ", а реверсивное число равно " + reverseNumber);
 
         //Вывод чисел на консоль в несколько строк
         System.out.println();
         System.out.println("Вывод чисел на консоль в несколько строк");
-        int full = 24;
+        int total = 24;
         int symbolsInLine = 5;
         int iterrationStep = 2;
-        int change = 1;
-        for(int i = 1; i <= (full / iterrationStep / symbolsInLine) + 1; i++) {
-            for(int j = change; j < (change + symbolsInLine * iterrationStep); j = j + iterrationStep) {
-                if(j <= full) {
+        int buffer = 1;
+        for(int i = 1; i <= (total / iterrationStep / symbolsInLine) + 1; i++) {
+            for(int j = buffer; j < (buffer + symbolsInLine * iterrationStep); j = j + iterrationStep) {
+                if(j <= total) {
                     System.out.format("%02d", j);
                     System.out.print(" ");
                 } else {
@@ -83,23 +84,23 @@ public class CyclesTheme {
                 }
             }
             System.out.println();
-            change = change + symbolsInLine * iterrationStep;
+            buffer = buffer + symbolsInLine * iterrationStep;
         }
 
         //Проверка количества единиц на четность
         System.out.println();
         System.out.println("Проверка количества единиц на четность");
-        int amountOfUnits = 3_141_591;
-        int checkNumberClass = 1_000_000;
+        int quantity = 3_141_591;
+        int numberClass1 = 1_000_000;
         int sum1 = 0;
-        int numberClassNumber;
-        while(amountOfUnits > 0) {
-            numberClassNumber = amountOfUnits / checkNumberClass;
-            amountOfUnits = amountOfUnits % checkNumberClass;
-            if(numberClassNumber == 1) {
+        int quantityOfNumberClass;
+        while(quantity > 0) {
+            quantityOfNumberClass = quantity / numberClass1;
+            if(quantityOfNumberClass == 1) {
                 sum1 = sum1 + 1;
             }
-            checkNumberClass = checkNumberClass / 10;
+            quantity = quantity % numberClass1;
+            numberClass1 = numberClass1 / 10;
         }
         if(sum1 % 2 == 0) {
             System.out.println("В данном числе " + sum1 + " единиц(ы). Их сумма чётная.");
@@ -110,38 +111,52 @@ public class CyclesTheme {
         //Отображение фигур в консоли
         System.out.println();
         System.out.println("Отображение фигур в консоли");
-        char squareSide = 42;
-        char triangleSide = 35;
-        char rhombSide = 36;
-        int k = 5;
-        int l = 3;
+        char squareSymbol = 42;
+        char triangleSymbol = 35;
+        char rhombSymbol = 36;
+        int symbolsInTriangleLine = 5;
+        int symbolsInRhombLine = 1;
         for(int i = 1; i <= 5; i++) {
             for(int j = 1; j <= 10; j++) {
-                System.out.print(squareSide);
+                System.out.print(squareSymbol);
             }
         System.out.println();
         }
-        while(k > 0) {
-            for(int i = k; i > 0; i--) {
-                System.out.print(triangleSide);
+        while(symbolsInTriangleLine > 0) {
+            for(int i = symbolsInTriangleLine; i > 0; i--) {
+                System.out.print(triangleSymbol);
             }
         System.out.println();
-        k--;
+        symbolsInTriangleLine--;
         }
         do {
-            for(int i = l; i <= 3; i++) {
-                System.out.print(rhombSide);
+            for(int i = symbolsInRhombLine; i > 0; i--) {
+                System.out.print(rhombSymbol);
             }
         System.out.println();
-        l--;
-        } while(l > 0);
+        symbolsInRhombLine++;
+        } while(symbolsInRhombLine <= 3);
         do {
-            for( int i = l; i < 2; i++) {
-                System.out.print(rhombSide);
+            for(int i = symbolsInRhombLine; i > 2; i--) {
+                System.out.print(rhombSymbol);
             }
-            System.out.println();
-            l++;
-        } while(l <= 2);
+        System.out.println();
+        symbolsInRhombLine--;
+        } while(symbolsInRhombLine > 2);
+        // do {
+        //     for(int i = symbolsInRhombLine; i <= 3; i++) {
+        //         System.out.print(rhombSymbol);
+        //     }
+        // System.out.println();
+        // symbolsInRhombLine--;
+        // } while(symbolsInRhombLine > 0);
+        // do {
+        //     for( int i = symbolsInRhombLine; i < 2; i++) {
+        //         System.out.print(rhombSymbol);
+        //     }
+        //     System.out.println();
+        //     symbolsInRhombLine++;
+        // } while(symbolsInRhombLine <= 2);
 
         //Проверка, является ли число палиндромом
         System.out.println("Проверка, является ли число палиндромом");
@@ -153,13 +168,13 @@ public class CyclesTheme {
             if(palindrom / checkUnit != palindrom % 10) {
                 isTheSame = false;
             }
-            palindrom = (palindrom - checkUnit * (palindrom / checkUnit) - palindrom % 10) / 10;
+            palindrom = (palindrom - checkUnit * (palindrom / checkUnit)) / 10;
             checkUnit = checkUnit / 100;
         }
         if(isTheSame) {
             System.out.println("Данное число является палиндромом.");
         } else {
-            System.out.println("Данное число не является палиндромом");
+            System.out.println("Данное число не является палиндромом.");
         }
 
         //Определение, является ли число счастливым
@@ -177,7 +192,7 @@ public class CyclesTheme {
                 rightNumber = happyNumber % 10;
                 sumLeftNumbers = sumLeftNumbers + leftNumber;
                 sumRightNumbers = sumRightNumbers + rightNumber;
-                happyNumber = (happyNumber - checkDigit * (happyNumber / checkDigit) - happyNumber % 10) / 10;
+                happyNumber = happyNumber % checkDigit / 10;
                 checkDigit = checkDigit / 100;
             }
             if(sumLeftNumbers == sumRightNumbers) {
