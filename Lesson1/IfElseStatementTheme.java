@@ -1,6 +1,7 @@
 public class IfElseStatementTheme {
     public static void main(String[] args) {
         //Перевод псевдокода на язык Java
+        System.out.println();
         System.out.println("Перевод псевдокода на язык Java");
         int age = 18;
         double height = 1.81;
@@ -31,6 +32,7 @@ public class IfElseStatementTheme {
         }
 
         //Поиск максимального и минимального числа
+        System.out.println();
         System.out.println("Поиск максимального и минимального числа");
         int a = 5;
         int b = 6;
@@ -43,6 +45,7 @@ public class IfElseStatementTheme {
         }
 
         //Работа с числом
+        System.out.println();
         System.out.println("Работа с числом");
         int number = 78;
         if(number % 2 == 0) {
@@ -59,6 +62,7 @@ public class IfElseStatementTheme {
         }
 
         //Поиск общей цифры в числах
+        System.out.println();
         System.out.println("Поиск общей цифры в числах");
         int c = 476;
         int d = 378;
@@ -85,6 +89,7 @@ public class IfElseStatementTheme {
         }
 
         //Определение буквы, числа или символа по их коду
+        System.out.println();
         System.out.println("Определение буквы, числа или символа по их коду");
         char symbol = '\u005A';
         if(symbol < 58 & symbol > 47) {
@@ -98,10 +103,11 @@ public class IfElseStatementTheme {
         }
 
         //Определение суммы вклада и начисленных банком %
+        System.out.println();
         System.out.println("Определение суммы вклада и начисленных банком %");
         double sumDeposit = 300_000;
         double percent, sumWithPercent;
-        if(sumDeposit < 100_00) {
+        if(sumDeposit < 100_000) {
             percent = 5;
             sumWithPercent = sumDeposit * 1.05;
         } else if(sumDeposit >= 100_000 & sumDeposit <= 300_000) {
@@ -114,39 +120,41 @@ public class IfElseStatementTheme {
         System.out.println("Размер вашего вклада равен " + sumDeposit + ", процент, начисленный на ваш вклад, равен " + percent + "%, общая сумма с начисленными процентами равна " + sumWithPercent);
 
         //Определение оценки по предметам
+        System.out.println();
         System.out.println("Определение оценки по предметам");
-        double history = 59;
-        double it = 91;
-        double pointsHistory, pointsIt;
-        if(history > 60) {
-            pointsHistory = 3;
-            System.out.println("Ваша оценка по истории " + pointsHistory);
-        } else if(history > 73) {
-            pointsHistory = 4;
-            System.out.println("Ваша оценка по истории " + pointsHistory);
-        } else if(history > 91) {
-            pointsHistory = 5;
-            System.out.println("Ваша оценка по истории " + pointsHistory);
+        double historyPoints = 59;
+        double programmingPoints = 91;
+        double historyScore, programmingScore;
+        if(historyPoints > 60) {
+            historyScore = 3;
+            System.out.println("Ваша оценка по истории " + historyScore);
+        } else if(historyPoints > 73) {
+            historyScore = 4;
+            System.out.println("Ваша оценка по истории " + historyScore);
+        } else if(historyPoints > 91) {
+            historyScore = 5;
+            System.out.println("Ваша оценка по истории " + historyScore);
         } else {
-            pointsHistory = 2;
-            System.out.println("Ваша оценка по истории " + pointsHistory);
+            historyScore = 2;
+            System.out.println("Ваша оценка по истории " + historyScore);
         }
-        if(it > 60) {
-            pointsIt = 3;
-            System.out.println("Ваша оценка по программированнию " + pointsIt);
-        } else if(it > 73) {
-            pointsIt = 4;
-            System.out.println("Ваша оценка по программированнию " + pointsIt);
-        } else if(it > 91) {
-            pointsIt = 5;
-            System.out.println("Ваша оценка по программированнию " + pointsIt);
+        if(programmingPoints > 60) {
+            programmingScore = 3;
+            System.out.println("Ваша оценка по программированнию " + programmingScore);
+        } else if(programmingPoints > 73) {
+            programmingScore = 4;
+            System.out.println("Ваша оценка по программированнию " + programmingScore);
+        } else if(programmingPoints > 91) {
+            programmingScore = 5;
+            System.out.println("Ваша оценка по программированнию " + programmingScore);
         } else {
-            pointsIt = 2;
-            System.out.println("Ваша оценка по программированнию " + pointsIt);
+            programmingScore = 2;
+            System.out.println("Ваша оценка по программированнию " + programmingScore);
         }
-        System.out.println("Ваш средний балл равен " + (pointsHistory + pointsIt) / 2 + ", ваш средний % по предметам равен " + (history + it) / 2 + "%");
+        System.out.println("Ваш средний балл равен " + (historyScore + programmingScore) / 2 + ", ваш средний % по предметам равен " + (historyPoints + programmingPoints) / 2 + "%");
 
         //Расчет прибыли (убытка)
+        System.out.println();
         System.out.println("Расчет прибыли (убытка)");
         int profit = 15_000;
         int rent = 5_000;
@@ -159,6 +167,7 @@ public class IfElseStatementTheme {
         }
 
         //Определение существования треугольника
+        System.out.println();
         System.out.println("Определение существования треугольника");
         int side1 = 3;
         int side2 = 4;
@@ -186,13 +195,14 @@ public class IfElseStatementTheme {
                 System.out.println("Площадь треугольника равна " + (side1 * side3 / 2));
             }
         }
-        char diag = 92;
-        System.out.println("  |" + diag + "      ");
-        System.out.println("  | " + diag + "    ");
-        System.out.println("  |  " + diag + "  ");
-        System.out.println("  |___" + diag);
+        char slash = 92;
+        System.out.println("  |" + slash + "      ");
+        System.out.println("  | " + slash + "    ");
+        System.out.println("  |  " + slash + "  ");
+        System.out.println("  |___" + slash);
 
         //Подсчет количества банкнот
+        System.out.println();
         System.out.println("Подсчет количества банкнот");
         int money = 567;
         int moneyNom1, moneyNom2, moneyNom3;
