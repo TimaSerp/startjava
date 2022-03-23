@@ -160,15 +160,15 @@ public class CyclesTheme {
 
         //Проверка, является ли число палиндромом
         System.out.println("Проверка, является ли число палиндромом");
-        int palindrom = 12321;
+        int srcNum = 12321;
         int numberAmount = 5;
         int checkUnit = 10000;
         boolean isTheSame = true;
         for(int i = 1; i <= numberAmount / 2; i++) {
-            if(palindrom / checkUnit != palindrom % 10) {
+            if(srcNum / checkUnit != srcNum % 10) {
                 isTheSame = false;
             }
-            palindrom = (palindrom - checkUnit * (palindrom / checkUnit)) / 10;
+            srcNum = (srcNum - checkUnit * (srcNum / checkUnit)) / 10;
             checkUnit = checkUnit / 100;
         }
         if(isTheSame) {
@@ -180,7 +180,7 @@ public class CyclesTheme {
         //Определение, является ли число счастливым
         System.out.println();
         System.out.println("Определение, является ли число счастливым");
-        int happyNumber = 345264;
+        int srcHappyNum = 345264;
         int numberAmount1 = 6;
         int checkDigit = 100000;
         int leftNumber, rightNumber; 
@@ -188,11 +188,11 @@ public class CyclesTheme {
         int sumRightNumbers = 0;
         if(numberAmount1 % 2 == 0) {
             for(int i = 1; i <= numberAmount1 / 2; i++) {
-                leftNumber = happyNumber / checkDigit;
-                rightNumber = happyNumber % 10;
+                leftNumber = srcHappyNum / checkDigit;
+                rightNumber = srcHappyNum % 10;
                 sumLeftNumbers = sumLeftNumbers + leftNumber;
                 sumRightNumbers = sumRightNumbers + rightNumber;
-                happyNumber = happyNumber % checkDigit / 10;
+                srcHappyNum = srcHappyNum % checkDigit / 10;
                 checkDigit = checkDigit / 100;
             }
             if(sumLeftNumbers == sumRightNumbers) {
