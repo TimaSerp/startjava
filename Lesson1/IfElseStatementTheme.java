@@ -103,7 +103,7 @@ public class IfElseStatementTheme {
         System.out.println();
         System.out.println("Определение суммы вклада и начисленных банком %");
         double sumDeposit = 300_000;
-        double percent, sumWithPercent;
+        double percent;
         if(sumDeposit < 100_000) {
             percent = 5;
         } else if(sumDeposit >= 100_000 && sumDeposit <= 300_000) {
@@ -111,10 +111,9 @@ public class IfElseStatementTheme {
         } else {
             percent = 10;
         }
-        sumWithPercent = sumDeposit * (1 + 0.01 * percent);
         System.out.println("Размер вашего вклада равен " + sumDeposit); 
         System.out.println("Процент, начисленный на ваш вклад, равен " + percent + "%"); 
-        System.out.println("Общая сумма с начисленными процентами равна " + sumWithPercent);
+        System.out.println("Общая сумма с начисленными процентами равна " + sumDeposit * (1 + 0.01 * percent));
 
         //Определение оценки по предметам
         System.out.println();
