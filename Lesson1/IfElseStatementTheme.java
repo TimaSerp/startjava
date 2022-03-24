@@ -4,28 +4,31 @@ public class IfElseStatementTheme {
         System.out.println();
         System.out.println("Перевод псевдокода на язык Java");
         int age = 18;
-        double height = 1.81;
-        boolean manGender = true;
-        String name = "Timofei";
         if(age > 17) {
             System.out.println("Вы уже можете купить пиво в магазине, поздравляю!");
         } else {
             System.out.println("К сожалению, пиво вам не продадут.");
         }
+
+        boolean manGender = true;
         if(!manGender) {
             System.out.println("Вы женщина!");
         } else {
             System.out.println("Вы мужчина!");
         }
+
+        double height = 1.81;
         if(height < 1.80) {
             System.out.println("Возьмите стремянку, чтобы достать банку с верхней полки");
         } else {
             System.out.println("Вы достаточно высокий, чтобы достать банку с верхней полки!");
         }
-        char firstLetterOfTheName = name.charAt(0);
-        if(firstLetterOfTheName == 'T') {
+
+        String name = "Timofei";
+        char firstLetterName = name.charAt(0);
+        if(firstLetterName == 'T') {
             System.out.println("Ваше имя начинается на букву Т.");
-        } else if(firstLetterOfTheName == 'M') {
+        } else if(firstLetterName == 'M') {
             System.out.println("Ваше имя начинается с буквы М.");
         } else {
             System.out.println("Ваше имя не начинается с букв Т и М.");
@@ -66,24 +69,18 @@ public class IfElseStatementTheme {
         System.out.println("Поиск общей цифры в числах");
         int c = 476;
         int d = 378;
-        int cHundreds = c / 100;
-        int dHundreds = d / 100;
-        int cDecades = c % 100 / 10;
-        int dDecades = d % 100 / 10;
-        int cUnits = cDecades % 10;
-        int dUnits = dDecades % 10;
-        if(cHundreds == dHundreds) {
-            System.out.println("Числа в разряде сотен равны " + cHundreds);
+        if(c / 100 == d / 100) {
+            System.out.println("Числа в разряде сотен равны " + c / 100);
         } else {
             System.out.println("Числа в разряде сотен не равны");
         }
-        if(cDecades == dDecades) {
-            System.out.println("Числа в разряде десятков равны " + cDecades);
+        if(c % 100 / 10 == d % 100 / 10) {
+            System.out.println("Числа в разряде десятков равны " + c % 100 / 10);
         } else {
             System.out.println("Числа в разряде десятков не равны");
         }
-        if(cUnits == dUnits) {
-            System.out.println("Числа в разряде единиц равны " + cUnits);
+        if(c % 10 == d % 10) {
+            System.out.println("Числа в разряде единиц равны " + c % 10);
         } else {
             System.out.println("Числа в разряде единиц не равны");
         }
@@ -92,11 +89,11 @@ public class IfElseStatementTheme {
         System.out.println();
         System.out.println("Определение буквы, числа или символа по их коду");
         char symbol = '\u005A';
-        if(symbol < 58 & symbol > 47) {
+        if(symbol < 58 && symbol > 47) {
             System.out.println("Ваш символ является цифрой " + symbol);
-        } else if(symbol > 64 & symbol < 91) {
+        } else if(symbol > 64 && symbol < 91) {
             System.out.println("Ваш символ заглавная буква " + symbol);
-        } else if(symbol > 96 & symbol < 123) {
+        } else if(symbol > 96 && symbol < 123) {
             System.out.println("Ваш символ строчная буква " + symbol);
         } else {
             System.out.println("Ваш символ не буква и не число, а" + symbol);
@@ -109,15 +106,15 @@ public class IfElseStatementTheme {
         double percent, sumWithPercent;
         if(sumDeposit < 100_000) {
             percent = 5;
-            sumWithPercent = sumDeposit * 1.05;
-        } else if(sumDeposit >= 100_000 & sumDeposit <= 300_000) {
+        } else if(sumDeposit >= 100_000 && sumDeposit <= 300_000) {
             percent = 7;
-            sumWithPercent = sumDeposit * 1.07;
         } else {
             percent = 10;
-            sumWithPercent = sumDeposit * 1.1;
         }
-        System.out.println("Размер вашего вклада равен " + sumDeposit + ", процент, начисленный на ваш вклад, равен " + percent + "%, общая сумма с начисленными процентами равна " + sumWithPercent);
+        sumWithPercent = sumDeposit * (1 + 0.01 * percent);
+        System.out.println("Размер вашего вклада равен " + sumDeposit); 
+        System.out.println("Процент, начисленный на ваш вклад, равен " + percent + "%"); 
+        System.out.println("Общая сумма с начисленными процентами равна " + sumWithPercent);
 
         //Определение оценки по предметам
         System.out.println();
@@ -126,32 +123,25 @@ public class IfElseStatementTheme {
         double programmingPoints = 91;
         double historyScore, programmingScore;
         if(historyPoints > 60) {
-            historyScore = 3;
-            System.out.println("Ваша оценка по истории " + historyScore);
+            System.out.println("Ваша оценка по истории " + (historyScore = 3));
         } else if(historyPoints > 73) {
-            historyScore = 4;
-            System.out.println("Ваша оценка по истории " + historyScore);
+            System.out.println("Ваша оценка по истории " + (historyScore = 4));
         } else if(historyPoints > 91) {
-            historyScore = 5;
-            System.out.println("Ваша оценка по истории " + historyScore);
+            System.out.println("Ваша оценка по истории " + (historyScore = 5));
         } else {
-            historyScore = 2;
-            System.out.println("Ваша оценка по истории " + historyScore);
+            System.out.println("Ваша оценка по истории " + (historyScore = 2));
         }
         if(programmingPoints > 60) {
-            programmingScore = 3;
-            System.out.println("Ваша оценка по программированнию " + programmingScore);
+            System.out.println("Ваша оценка по программированнию " + (programmingScore = 3));
         } else if(programmingPoints > 73) {
-            programmingScore = 4;
-            System.out.println("Ваша оценка по программированнию " + programmingScore);
+            System.out.println("Ваша оценка по программированнию " + (programmingScore = 4));
         } else if(programmingPoints > 91) {
-            programmingScore = 5;
-            System.out.println("Ваша оценка по программированнию " + programmingScore);
+            System.out.println("Ваша оценка по программированнию " + (programmingScore = 5));
         } else {
-            programmingScore = 2;
-            System.out.println("Ваша оценка по программированнию " + programmingScore);
+            System.out.println("Ваша оценка по программированнию " + (programmingScore = 2));
         }
-        System.out.println("Ваш средний балл равен " + (historyScore + programmingScore) / 2 + ", ваш средний % по предметам равен " + (historyPoints + programmingPoints) / 2 + "%");
+        System.out.println("Ваш средний балл равен " + (historyScore + programmingScore) / 2);
+        System.out.println("Ваш средний % по предметам равен " + (historyPoints + programmingPoints) / 2 + "%");
 
         //Расчет прибыли (убытка)
         System.out.println();
@@ -159,11 +149,11 @@ public class IfElseStatementTheme {
         int profit = 15_000;
         int rent = 5_000;
         int selfCost = 9_000;
-        int netProfit = profit - selfCost - rent;
+        int netProfit = (profit - selfCost - rent) * 12;
         if(netProfit >= 0) {
-            System.out.println("Ваша прибыль за год составила +" + netProfit * 12);
+            System.out.println("Ваша прибыль за год составила +" + netProfit);
         } else {
-            System.out.println("Ваш убыток за год составил " + netProfit * 12);
+            System.out.println("Ваш убыток за год составил " + netProfit);
         }
 
         //Определение существования треугольника
@@ -172,27 +162,31 @@ public class IfElseStatementTheme {
         int side1 = 3;
         int side2 = 4;
         int side3 = 5;
-        if((side1 + side2) > side3) {
-            if((side1 + side3) > side2) {
-                if((side2 + side3) > side1) {
-                    System.out.println("Треугольник с такими сторонами может существовать");
+        if(side3 <= side2) {
+            if(side2 > side1) {
+                if(side2 < (side1 + side3)) {
+                    System.out.println("Треугольник с такими сторонами может существовать.");
+                    System.out.println("Гипотенуза равна " + side2 + ", а катеты " + side1 + ", " + side3);
+                    System.out.println("Площадь треугольника равна " + (side1 * side3 / 2));
+                } else {
+                    System.out.println("Такой треугольник не может существовать");
+                }
+            } else {
+                if(side1 < (side2 + side3)) {
+                    System.out.println("Треугольник с такими сторонами может существовать.");
+                    System.out.println("Гипотенуза равна " + side1 + ", а катеты " + side2 + ", " + side3);
+                    System.out.println("Площадь треугольника равна " + (side3 * side2 / 2));
+                } else {
+                    System.out.println("Такой треугольник не может существовать");
                 }
             }
-        }
-        if(side3 > side2) {
-            if(side3 > side1) {
+        } else {
+            if(side3 < (side1 + side2)) {
+                System.out.println("Треугольник с такими сторонами может существовать.");
                 System.out.println("Гипотенуза равна " + side3 + ", а катеты " + side1 + ", " + side2);
                 System.out.println("Площадь треугольника равна " + (side1 * side2 / 2));
-            }
-        } else if(side1 > side2) {
-            if(side1 > side3) {
-                System.out.println("Гипотенуза равна " + side1 + ", а катеты " + side3 + ", " + side2);
-                System.out.println("Площадь треугольника равна " + (side3 * side2 / 2));
-            }
-        } else if(side2 > side1) {
-            if(side2 > side3) {
-                System.out.println("Гипотенуза равна " + side2 + ", а катеты " + side1 + ", " + side3);
-                System.out.println("Площадь треугольника равна " + (side1 * side3 / 2));
+            } else {
+                System.out.println("Такой треугольник не может существовать");
             }
         }
         char slash = 92;
@@ -213,7 +207,7 @@ public class IfElseStatementTheme {
             moneyNom1 = money / nom1;
             if(money / nom2 > 0) {
                 moneyNom2 = money % nom1 / nom2;
-                moneyNom3 = moneyNom1 % nom2;
+                moneyNom3 = money % nom1 % nom2;
             } else {
                 moneyNom2 = 0;
                 moneyNom3 = money % nom1;
@@ -227,6 +221,8 @@ public class IfElseStatementTheme {
             moneyNom2 = 0;
             moneyNom3 = money;
         }
-        System.out.println("Имеющиеся номиналы банкнот: " + nom1 + ", " + nom2 + ", " + nom3 + ". Чтобы посчитать число " + money + " нам требуется " + moneyNom1 + " " + nom1 + "-рублевых банкнот, " + moneyNom2 + " " + nom2 + "-рублевых банкнот и " + moneyNom3 + " " + nom3 + "-рублевых банкнот. Сумма банкнот составляет " + (moneyNom1 * nom1 + moneyNom2 * nom2 + moneyNom3 * nom3));
+        System.out.println("Имеющиеся номиналы банкнот: " + nom1 + ", " + nom2 + ", " + nom3);
+        System.out.println("Чтобы посчитать число " + money + " нам требуется " + moneyNom1 + " " + nom1 + "-рублевых банкнот, " + moneyNom2 + " " + nom2 + "-рублевых банкнот и " + moneyNom3 + " " + nom3 + "-рублевых банкнот");
+        System.out.println("Сумма банкнот составляет " + (moneyNom1 * nom1 + moneyNom2 * nom2 + moneyNom3 * nom3));
     }
 }
