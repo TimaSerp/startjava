@@ -2,7 +2,7 @@ public class MyFirstGame {
     public static void main(String[] args) {
         //Необходимо ввести число (0; 100]
         int random = 45;
-        //Тут ввести можно любое число, но 50 самое рациональное
+        //Тут можно ввести любое число, но 50 самое рациональное
         int startNumber = 50;
         System.out.println("Вы ввели число " + startNumber);
         do {
