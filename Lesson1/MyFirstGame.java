@@ -13,7 +13,7 @@ public class MyFirstGame {
                 System.out.println("Данное число больше того, что загадал компьютер");
                 playerNumber++;
             }
-        System.out.println("Вы ввели число " + playerNumber);
+            System.out.println("Вы ввели число " + playerNumber);
         } while(playerNumber != random);
         System.out.println("Вы победили!");
     }

@@ -7,19 +7,19 @@ public class Calculator {
         //Вводим команду
         char sign = '+';
         if(a > 0 & b > 0) {
-            if(sign == 43) {
+            if(sign == '+') {
                 result = a + b;
-            } else if(sign == 45) {
+            } else if(sign == '-') {
                 result = a - b;
-            } else if(sign == 42) {
+            } else if(sign == '*') {
                 result = a * b;
-            } else if(sign == 47) {
+            } else if(sign == '/') {
                 result = a / b;
-            } else if(sign == 94) {
+            } else if(sign == '^') {
                 for(int i = 1; i <= b; i++) {
                     result *= a;
                 }
-            } else if(sign == 37) {
+            } else if(sign == '%') {
                 result = a % b;
             }
             System.out.println(a + " " + sign + " " + b + " = " + result);

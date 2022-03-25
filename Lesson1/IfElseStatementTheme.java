@@ -153,9 +153,9 @@ public class IfElseStatementTheme {
         int side2 = 4;
         int side3 = 5;
         boolean isExist = true;
-        int hypotenuse = 0;
-        int cathet1 = 0;
-        int cathet2 = 0;
+        int hypotenuse = side1;
+        int cathet1 = side2;
+        int cathet2 = side3;
         if(side3 <= side2) {
             if(side2 > side1) {
                 if(side2 < (side1 + side3)) {
@@ -166,11 +166,7 @@ public class IfElseStatementTheme {
                     isExist = false;
                 }
             } else {
-                if(side1 < (side2 + side3)) {
-                    hypotenuse = side1;
-                    cathet1 = side2;
-                    cathet2 = side3;
-                } else {
+                if(side1 >= (side2 + side3)) {
                     isExist = false;
                 }
             }
