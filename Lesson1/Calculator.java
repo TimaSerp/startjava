@@ -4,8 +4,8 @@ public class Calculator {
         int a = 1;
         int b = 2;
         int result = a;
-        //Команды: 43-"+", 45-"-", 42-"*", 47-"/", 94-"^", 37-"%"
-        char sign = 37;
+        //Вводим команду
+        char sign = '+';
         if(a > 0 & b > 0) {
             if(sign == 43) {
                 result = a + b;
@@ -17,7 +17,7 @@ public class Calculator {
                 result = a / b;
             } else if(sign == 94) {
                 for(int i = 1; i <= b; i++) {
-                    result = result * a;
+                    result *= a;
                 }
             } else if(sign == 37) {
                 result = a % b;

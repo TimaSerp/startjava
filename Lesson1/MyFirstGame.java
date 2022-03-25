@@ -3,19 +3,18 @@ public class MyFirstGame {
         //Необходимо ввести число (0; 100]
         int random = 45;
         //Тут можно ввести любое число, но 50 самое рациональное
-        int startNumber = 50;
-        System.out.println("Вы ввели число " + startNumber);
+        int playerNumber = 50;
+        System.out.println("Вы ввели число " + playerNumber);
         do {
-            if(startNumber > random) {
+            if(playerNumber > random) {
                 System.out.println("Данное число меньше того, что загадал компьютер");
-                startNumber--;
-                System.out.println("Вы ввели число " + startNumber);
-            } else if(startNumber < random) {
+                playerNumber--;
+            } else if(playerNumber < random) {
                 System.out.println("Данное число больше того, что загадал компьютер");
-                startNumber++;
-                System.out.println("Вы ввели число " + startNumber);
+                playerNumber++;
             }
-        } while(startNumber != random);
+        System.out.println("Вы ввели число " + playerNumber);
+        } while(playerNumber != random);
         System.out.println("Вы победили!");
     }
 }

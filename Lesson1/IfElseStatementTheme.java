@@ -1,8 +1,7 @@
 public class IfElseStatementTheme {
     public static void main(String[] args) {
         //Перевод псевдокода на язык Java
-        System.out.println();
-        System.out.println("Перевод псевдокода на язык Java");
+        System.out.println("\nПеревод псевдокода на язык Java");
         int age = 18;
         if(age > 17) {
             System.out.println("Вы уже можете купить пиво в магазине, поздравляю!");
@@ -35,8 +34,7 @@ public class IfElseStatementTheme {
         }
 
         //Поиск максимального и минимального числа
-        System.out.println();
-        System.out.println("Поиск максимального и минимального числа");
+        System.out.println("\nПоиск максимального и минимального числа");
         int a = 5;
         int b = 6;
         if(a > b) {
@@ -48,8 +46,7 @@ public class IfElseStatementTheme {
         }
 
         //Работа с числом
-        System.out.println();
-        System.out.println("Работа с числом");
+        System.out.println("\nРабота с числом");
         int number = 78;
         if(number % 2 == 0) {
             System.out.println("Ваше число чётное");
@@ -65,8 +62,7 @@ public class IfElseStatementTheme {
         }
 
         //Поиск общей цифры в числах
-        System.out.println();
-        System.out.println("Поиск общей цифры в числах");
+        System.out.println("\nПоиск общей цифры в числах");
         int c = 476;
         int d = 378;
         if(c / 100 == d / 100) {
@@ -74,7 +70,7 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Числа в разряде сотен не равны");
         }
-        if(c % 100 / 10 == d % 100 / 10) {
+        if((c % 100 / 10) == (d % 100 / 10)) {
             System.out.println("Числа в разряде десятков равны " + c % 100 / 10);
         } else {
             System.out.println("Числа в разряде десятков не равны");
@@ -86,8 +82,7 @@ public class IfElseStatementTheme {
         }
 
         //Определение буквы, числа или символа по их коду
-        System.out.println();
-        System.out.println("Определение буквы, числа или символа по их коду");
+        System.out.println("\nОпределение буквы, числа или символа по их коду");
         char symbol = '\u005A';
         if(symbol < 58 && symbol > 47) {
             System.out.println("Ваш символ является цифрой " + symbol);
@@ -100,13 +95,12 @@ public class IfElseStatementTheme {
         }
 
         //Определение суммы вклада и начисленных банком %
-        System.out.println();
-        System.out.println("Определение суммы вклада и начисленных банком %");
+        System.out.println("\nОпределение суммы вклада и начисленных банком %");
         double sumDeposit = 300_000;
         double percent;
         if(sumDeposit < 100_000) {
             percent = 5;
-        } else if(sumDeposit >= 100_000 && sumDeposit <= 300_000) {
+        } else if((sumDeposit >= 100_000) && (sumDeposit <= 300_000)) {
             percent = 7;
         } else {
             percent = 10;
@@ -116,8 +110,7 @@ public class IfElseStatementTheme {
         System.out.println("Общая сумма с начисленными процентами равна " + sumDeposit * (1 + 0.01 * percent));
 
         //Определение оценки по предметам
-        System.out.println();
-        System.out.println("Определение оценки по предметам");
+        System.out.println("\nОпределение оценки по предметам");
         double historyPoints = 59;
         double programmingPoints = 91;
         double historyScore, programmingScore;
@@ -143,8 +136,7 @@ public class IfElseStatementTheme {
         System.out.println("Ваш средний % по предметам равен " + (historyPoints + programmingPoints) / 2 + "%");
 
         //Расчет прибыли (убытка)
-        System.out.println();
-        System.out.println("Расчет прибыли (убытка)");
+        System.out.println("\nРасчет прибыли (убытка)");
         int profit = 15_000;
         int rent = 5_000;
         int selfCost = 9_000;
@@ -156,37 +148,47 @@ public class IfElseStatementTheme {
         }
 
         //Определение существования треугольника
-        System.out.println();
-        System.out.println("Определение существования треугольника");
+        System.out.println("\nОпределение существования треугольника");
         int side1 = 3;
         int side2 = 4;
         int side3 = 5;
+        boolean isExist = true;
+        int hypotenuse = 0;
+        int cathet1 = 0;
+        int cathet2 = 0;
         if(side3 <= side2) {
             if(side2 > side1) {
                 if(side2 < (side1 + side3)) {
-                    System.out.println("Треугольник с такими сторонами может существовать.");
-                    System.out.println("Гипотенуза равна " + side2 + ", а катеты " + side1 + ", " + side3);
-                    System.out.println("Площадь треугольника равна " + (side1 * side3 / 2));
+                    hypotenuse = side2;
+                    cathet1 = side1;
+                    cathet2 = side3;
                 } else {
-                    System.out.println("Такой треугольник не может существовать");
+                    isExist = false;
                 }
             } else {
                 if(side1 < (side2 + side3)) {
-                    System.out.println("Треугольник с такими сторонами может существовать.");
-                    System.out.println("Гипотенуза равна " + side1 + ", а катеты " + side2 + ", " + side3);
-                    System.out.println("Площадь треугольника равна " + (side3 * side2 / 2));
+                    hypotenuse = side1;
+                    cathet1 = side2;
+                    cathet2 = side3;
                 } else {
-                    System.out.println("Такой треугольник не может существовать");
+                    isExist = false;
                 }
             }
         } else {
             if(side3 < (side1 + side2)) {
-                System.out.println("Треугольник с такими сторонами может существовать.");
-                System.out.println("Гипотенуза равна " + side3 + ", а катеты " + side1 + ", " + side2);
-                System.out.println("Площадь треугольника равна " + (side1 * side2 / 2));
+                hypotenuse = side3;
+                cathet1 = side1;
+                cathet2 = side2;
             } else {
-                System.out.println("Такой треугольник не может существовать");
+                isExist = false;
             }
+        }
+        if (isExist) {
+            System.out.println("Треугольник с такими сторонами может существовать.");
+            System.out.println("Гипотенуза равна " + hypotenuse + ", а катеты " + cathet1 + ", " + cathet2);
+            System.out.println("Площадь треугольника равна " + (cathet1 * cathet2 / 2));
+        } else {
+            System.out.println("Треугольник с такими сторонами не может существовать");
         }
         char slash = 92;
         System.out.println("  |" + slash + "      ");
@@ -195,10 +197,11 @@ public class IfElseStatementTheme {
         System.out.println("  |___" + slash);
 
         //Подсчет количества банкнот
-        System.out.println();
-        System.out.println("Подсчет количества банкнот");
+        System.out.println("\nПодсчет количества банкнот");
         int money = 567;
-        int moneyNom1, moneyNom2, moneyNom3;
+        int moneyNom1 = 0; 
+        int moneyNom2 = 0; 
+        int moneyNom3;
         int nom1 = 50;
         int nom2 = 10;
         int nom3 = 1;
@@ -208,16 +211,12 @@ public class IfElseStatementTheme {
                 moneyNom2 = money % nom1 / nom2;
                 moneyNom3 = money % nom1 % nom2;
             } else {
-                moneyNom2 = 0;
                 moneyNom3 = money % nom1;
             }
         } else if(money / nom2 > 0) {
-            moneyNom1 = 0;
             moneyNom2 = money / nom2;
             moneyNom3 = money % nom2;
         } else {
-            moneyNom1= 0;
-            moneyNom2 = 0;
             moneyNom3 = money;
         }
         System.out.println("Имеющиеся номиналы банкнот: " + nom1 + ", " + nom2 + ", " + nom3);
