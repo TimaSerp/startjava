@@ -6,8 +6,8 @@ public class Person {
     double weight = 85.00;
     int age = 20;
 
-    boolean talk() {
-        return true;
+    String talk() {
+        return "Я говорю";
     }
 
     void walk() {
