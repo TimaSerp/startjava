@@ -1,4 +1,4 @@
-public class VariablesTheme {
+public class VariablesTheme { 
     public static void main(String[] args) {
         //Создание переменных и вывод их значений на консоль 
         System.out.println("\nСоздание переменных и вывод их значений на консоль");
