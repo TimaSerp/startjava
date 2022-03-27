@@ -8,13 +8,13 @@ public class CalculatorTest {
         while (choice.equals("yes")) {
             System.out.println("Введите первое число");
             calc.setA(console.nextInt());
-            System.out.println("Введите знак математической операции");
+            System.out.println("\nВведите знак математической операции");
             calc.setSign(console.next().charAt(0));
-            System.out.println("Введите второе число");
+            System.out.println("\nВведите второе число");
             calc.setB(console.nextInt());
             calc.calculate();
             do {
-                System.out.println("Хотите продолжить вычисления? [yes/no]");
+                System.out.println("\nХотите продолжить вычисления? [yes/no]");
                 choice = console.nextLine();
                 if (choice.equals("no")) {
                     break;
