@@ -51,7 +51,7 @@ public class Calculator {
                 result = a % b;
             default: 
                 System.out.println("Вы ввели несуществующую команду");
-                break;
+                return;
         }
         System.out.println(a + " " + sign + " " + b + " = " + result);
     }
