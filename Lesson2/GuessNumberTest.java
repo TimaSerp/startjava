@@ -31,6 +31,7 @@ public class GuessNumberTest {
             }
             do {
                 System.out.println("\nХотите продолжить игру? [yes/no]");
+                console.nextLine();
                 choice = console.nextLine();
                 if (choice.equals("no")) {
                     break;

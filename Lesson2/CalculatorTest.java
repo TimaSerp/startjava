@@ -15,6 +15,7 @@ public class CalculatorTest {
             calc.calculate();
             do {
                 System.out.println("\nХотите продолжить вычисления? [yes/no]");
+                console.nextLine();
                 choice = console.nextLine();
                 if (choice.equals("no")) {
                     break;
