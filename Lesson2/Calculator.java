@@ -1,16 +1,34 @@
-import java.util.Scanner;
-
 public class Calculator {
-    public void calculator() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Введите первое число:");
-        int a = scan.nextInt();
-        System.out.println("Введите знак математической операции:");
-        char sign = scan.next().charAt(0);
-        System.out.println("Введите второе число:");
-        int b = scan.nextInt();
+    private int a;
+    private char sign;
+    private int b;
+
+    public int getA() {
+        return a;
+    }
+
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public char getSign() {
+        return sign;
+    }
+
+    public void setSign(char sign) {
+        this.sign = sign;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+    
+    public void calculate() {
         int result = a;
-        boolean isRight = true;
         switch(sign) {
             case '+':
                 result = a + b;
@@ -32,12 +50,9 @@ public class Calculator {
             case '%':
                 result = a % b;
             default: 
-                isRight = false;
+                System.out.println("Вы ввели несуществующую команду");
+                break;
         }
-        if (isRight) {
-            System.out.println(a + " " + sign + " " + b + " " + " = " + result);
-        } else {
-            System.out.println("Вы ввели несуществующую команду");
-        }
+        System.out.println(a + " " + sign + " " + b + " = " + result);
     }
 }
