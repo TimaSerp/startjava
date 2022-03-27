@@ -44,28 +44,7 @@ public class GuessNumber {
         Scanner console = new Scanner(System.in);
         Random random = new Random();
         String choice = "yes";
-        //Все, что ниже до while можно убрать, если в сообщении написать что-то вроде "Играем?"
-        randomNum = random.nextInt(100);
-        checking = true;
-        for(int i = 1; checking; i++) {
-            if (i % 2 == 1) {
-                System.out.println("\nИгрок " + player1Name + " делает свой ход.");
-            } else {
-                System.out.println("\nИгрок " + player2Name + " делает свой ход.");
-            }
-            playerNum = console.nextInt();
-            if(playerNum > randomNum) {
-                System.out.println("Данное число больше того, что загадал компьютер");
-            } else if(playerNum < randomNum) {
-                System.out.println("Данное число меньше того, что загадал компьютер");
-            } else {
-                System.out.println("Вы выиграли!");
-                checking = false;
-            }
-        }
         while (true) {
-            System.out.println("\nХотите продолжить игру? [yes/no]");
-            choice = console.nextLine();
             if (choice.equals("no")) {
                 break;
             } else if (choice.equals("yes")) {
@@ -88,6 +67,9 @@ public class GuessNumber {
                     }
                 }
             }
+            System.out.println("\nХотите продолжить игру? [yes/no]");
+            console.nextLine();
+            choice = console.nextLine();
         }
     }
 }
