@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class GuessNumber {
     private int randomNum;
     private int playerNum;
-    private boolean checking = true;
     private String player1Name;
     private String player2Name;
 
@@ -12,32 +11,8 @@ public class GuessNumber {
         this.player1Name = player1Name;
     }
 
-        public void setPlayer2Name(String player2Name) {
+    public void setPlayer2Name(String player2Name) {
         this.player2Name = player2Name;
-    }
-
-    public boolean getChecking() {
-        return checking;
-    }
-
-    public void setChecking(boolean checking) {
-        this.checking = checking;
-    }
-
-    public void setRandomNum(int randomNum) {
-        this.randomNum = randomNum;
-    }
-
-    public int getRandomNum() {
-        return randomNum;
-    }
-
-    public void setPlayerNum(int playerNum) {
-        this.playerNum = playerNum;
-    }
-
-    public int getPlayerNum() {
-        return playerNum;
     }
 
     public void guessNumber() {
@@ -49,8 +24,7 @@ public class GuessNumber {
                 break;
             } else if (choice.equals("yes")) {
                 randomNum = random.nextInt(100);
-                checking = true;
-                for(int i = 1; checking; i++) {
+                for(int i = 1; true; i++) {
                     if (i % 2 == 1) {
                         System.out.println("\nИгрок " + player1Name + " делает свой ход.");
                     } else {
@@ -63,7 +37,7 @@ public class GuessNumber {
                         System.out.println("Данное число меньше того, что загадал компьютер");
                     } else {
                         System.out.println("Вы выиграли!");
-                        checking = false;
+                        break;
                     }
                 }
             }
