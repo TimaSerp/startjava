@@ -5,10 +5,8 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         Scanner console = new Scanner(System.in);
         String choice = "yes";
-        while (true) {
-            if (choice.equals("no")) {
-                break;
-            } else if (choice.equals("yes")) {
+        while (!choice.equals("no")) {
+            if (choice.equals("yes")) {
                 System.out.println("Введите первое число");
                 calc.setA(console.nextInt());
                 System.out.println("\nВведите знак математической операции");
