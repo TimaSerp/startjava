@@ -16,7 +16,7 @@ public class GuessNumber {
     public void guessNumber() {
         Scanner console = new Scanner(System.in);
         Random random = new Random();
-        randomNum = random.nextInt(100) + 1;
+        randomNum = (random.nextInt(100) + 1);
         System.out.println("В игре участвуют " + player1.getName() + " и "+ player2.getName());
         for(;;) {
             System.out.println("\nИгрок " + player1.getName() + " делает свой ход.");
