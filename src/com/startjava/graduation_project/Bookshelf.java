@@ -13,14 +13,14 @@ public class Bookshelf {
     private int bookSum = 0;
     private int freeSpaceSum = 10;
 
-    public Book doBook(String name, String author, int year) {
+    public Book makeBook(String name, String author, int year) {
         return new Book(name, author, year);
     }
 
     public void startProgramm() {
-        System.out.println("\nВАС ПРИВЕТСТВУЕТ ИНТЕРАКТИВНАЯ КНИЖНАЯ ПОЛКА!\n");
+        System.out.println("\nВАС ПРИВЕТСТВУЕТ ИНТЕРАКТИВНАЯ КНИЖНАЯ ПОЛКА!");
         for (int i = 0; i < bookshelf.length; i++) {
-            bookshelf[i] = doBook(name, author, year);
+            bookshelf[i] = makeBook(name, author, year);
         }
     }
 
@@ -33,19 +33,19 @@ public class Bookshelf {
     }
 
     public void showBookshelf() {
-        System.out.println("Состояние книжной полки: ");
+        System.out.println("\nСостояние книжной полки: ");
         for (int i = 0; i < bookshelf.length; i++) {
             if (bookshelf[i].getName().equals("0")) {
                 System.out.print("_");
             } else {
-                System.out.print("|_|");
+                System.out.print("|" + (i + 1) + "|");
             }
         System.out.print(" ");
         }
         System.out.println();
         for (int j = 0; j < bookshelf.length; j++) {
             if (bookshelf[j].getName().equals("0")) {
-                System.out.println("<                                                           >");
+                System.out.println("<                                           >");
             } else {
                 System.out.println("< " + bookshelf[j].getName() + ", " + bookshelf[j].getAuthor() + ", " + bookshelf[j].getYear() + " >");
             }
@@ -54,13 +54,14 @@ public class Bookshelf {
 
     public void showBookshelfShort() {
         for (int i = 0; i < bookshelf.length; i++) {
+            System.out.print("_");
             if (bookshelf[i].getName().equals("0")) {
                 System.out.print(i + 1);
 
             } else {
                 System.out.print("|" + (i + 1) + "|");
             }
-        System.out.print(" ");
+            System.out.print("_");
         }
     }
 
@@ -71,6 +72,8 @@ public class Bookshelf {
         placeNum = console.nextInt() - 1;
         if (placeNum > 9 || placeNum < 0) {
             System.out.println("Введите существующий номер места!");
+        } else if (!bookshelf[placeNum].getName().equals("0")) {
+            System.out.println("На этом месте уже стоит книга. Выберете другое место или удалите книгу через меню.");
         } else {
             System.out.println("Введите название книги:");
             console.nextLine();
@@ -79,7 +82,7 @@ public class Bookshelf {
             author = console.nextLine();
             System.out.println("Введите год написания книги:");
             year = console.nextInt();
-            bookshelf[placeNum] = doBook(name, author, year);
+            bookshelf[placeNum] = makeBook(name, author, year);
             System.out.println("Книга добавлена!");
         }
     }
@@ -97,7 +100,7 @@ public class Bookshelf {
                     if (bookshelf[placeNum].getName().equals("0")) {
                         System.out.println("Книги на данном месте нет.");
                     } else {
-                        bookshelf[placeNum] = doBook("0", "0", 0);
+                        bookshelf[placeNum] = makeBook("0", "0", 0);
                         System.out.println("Книга под номером " + (placeNum + 1) + " удалена.");
                     }
                 }
@@ -120,7 +123,8 @@ public class Bookshelf {
                     System.out.println("Книги на данном месте нет.");
                 } else {
                     Book buffer = new Book(name, author, year);
-                    bookshelf[placeNum] = buffer;
+                    buffer = bookshelf[placeNum];
+                    bookshelf[placeNum] = makeBook("0", "0", 0);
                     System.out.println("На какое место хотите переместить книгу?");
                     showBookshelfShort();
                     System.out.println();
@@ -144,7 +148,6 @@ public class Bookshelf {
     public void findBook() {
         checkBookExist();
         System.out.println("Какую книгу вы хотите найти? [введите название]");
-        console.nextLine();
         name = console.nextLine();
         for (int i = 0; i < bookshelf.length; i++) {
             if (name.equals(bookshelf[i].getName())) {
