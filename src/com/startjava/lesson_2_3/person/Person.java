@@ -1,3 +1,5 @@
+package com.startjava.lesson_2_3.person;
+
 public class Person {
     //если false, то женщина, если true, то мужчина
     boolean isMale = true;
