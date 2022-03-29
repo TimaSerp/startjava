@@ -3,11 +3,11 @@ package com.startjava.graduation_project;
 import java.util.Scanner;
 
 public class Bookshelf {
+    private Book[] bookshelf = new Book[10];
+    private Scanner console = new Scanner(System.in);
     private String name = "0";
     private String author = "0";
     private int year = 0;
-    private Book[] bookshelf = new Book[10];
-    private Scanner console = new Scanner(System.in);
     private int placeNum;
     private boolean isAbleDo = false;
 
@@ -121,7 +121,7 @@ public class Bookshelf {
                 if (placeNum > 9 || placeNum < -1) {
                     System.out.println("Введите существующий номер места!");
                 } else if (placeNum == -1) {
-                        return;
+                    return;
                 } else if (bookshelf[placeNum].getName().equals("0")) {
                     System.out.println("Книги на данном месте нет.");
                 } else {
@@ -153,7 +153,7 @@ public class Bookshelf {
 
     public void findBook() {
         checkBookExist();
-        System.out.println("Какую книгу вы хотите найти? [введите название]");
+        System.out.println("Какую книгу вы хотите найти? [Введите название]");
         name = console.nextLine();
         for (int i = 0; i < bookshelf.length; i++) {
             if (name.equals(bookshelf[i].getName())) {

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class BookshelfTest {
 
     private static void getMenu() {
-        System.out.println("\n\nЧто вы хотите сделать?");
+        System.out.println("\n\n      Что вы хотите сделать? [Введите номер команды]");
         System.out.println("___________________________________________________________");
         System.out.println("|                     1. Добавить книгу                   |");
         System.out.println("|_________________________________________________________|");
