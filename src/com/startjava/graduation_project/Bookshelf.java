@@ -7,23 +7,21 @@ public class Bookshelf {
     private Book[] bookshelf = new Book[10];
     private Scanner console = new Scanner(System.in);
     private String name;
-    private String author;
-    private int year;
     private int placeNum;
-    private boolean isAbleDo = false;
+
 
     public void startProgramm() {
         System.out.println("\nВАС ПРИВЕТСТВУЕТ ИНТЕРАКТИВНАЯ КНИЖНАЯ ПОЛКА!");
-        Arrays.fill(bookshelf, new Book(name, author, year));
+        Arrays.fill(bookshelf, new Book(null, null, 0));
     }
 
-    private void checkBookExist() {
+    private boolean checkBookExist() {
         for (Book book : bookshelf) {
             if (book.getName() != null) {
-                isAbleDo = true;
-                break;
+                return true;
             }
         }
+        return false;
     }
 
     public void showBookshelf() {
@@ -34,7 +32,7 @@ public class Bookshelf {
             } else {
                 System.out.print("|" + (i + 1) + "|");
             }
-        System.out.print(" ");
+            System.out.print(" ");
         }
         System.out.println();
         for (Book book : bookshelf) {
@@ -48,17 +46,17 @@ public class Bookshelf {
 
     public void showBookshelfShort() {
         for (int i = 0; i < bookshelf.length; i++) {
-            System.out.print("_");
             if (bookshelf[i].getName() == null) {
-                System.out.print(i + 1);
+                System.out.print("_" + (i + 1) + "_");
             } else {
-                System.out.print("|" + (i + 1) + "|");
+                System.out.print("_|" + (i + 1) + "|_");
             }
-            System.out.print("_");
         }
     }
 
     public void addBook() {
+        String author;
+        int year;
         while (true) {
             System.out.println("На место под каким номером вы хотите добавить книгу? [0 - выход]");
             showBookshelfShort();
@@ -71,13 +69,12 @@ public class Bookshelf {
             } else if (bookshelf[placeNum].getName() != null) {
                 System.out.println("На этом месте уже стоит книга. Выберете другое место или удалите книгу через меню.");
             } else {
-                System.out.println("Введите название книги:");
+                System.out.println("Введите название книги, автора и год через запятую без пробела:");
                 console.nextLine();
-                name = console.nextLine();
-                System.out.println("Введите автора книги:");
-                author = console.nextLine();
-                System.out.println("Введите год написания книги:");
-                year = console.nextInt();
+                String[] books = console.nextLine().split(",");
+                name = books[0];
+                author = books[1];
+                year = Integer.parseInt(books[2]);
                 bookshelf[placeNum] = new Book(name, author, year);
                 System.out.println("Книга добавлена!");
                 return;
@@ -86,9 +83,7 @@ public class Bookshelf {
     }
 
     public void deleteBook() {
-        isAbleDo = false;
-        checkBookExist();
-        if (isAbleDo) {
+        if (checkBookExist()) {
             while (true) {
                 System.out.println("Книгу под каким номером вы хотите удалить? [0 - выход]");
                 showBookshelfShort();
@@ -112,9 +107,7 @@ public class Bookshelf {
     }
 
     public void moveBook() {
-        isAbleDo = false;
-        checkBookExist();
-        if (isAbleDo) {
+        if (checkBookExist()) {
             while (true) {
                 System.out.println("\nКнигу под каким номером вы хотите переместить? [0 - выход]");
                 showBookshelfShort();
@@ -134,8 +127,7 @@ public class Bookshelf {
                         System.out.println("На какое место хотите переместить книгу?");
                         showBookshelfShort();
                         System.out.println();
-                        int placeNum2;
-                        placeNum2 = console.nextInt() - 1;
+                        int placeNum2 = console.nextInt() - 1;
                         if (placeNum2 > 9 || placeNum2 < 0) {
                             System.out.println("Введите существующий номер места!");
                         } else {
@@ -153,9 +145,7 @@ public class Bookshelf {
     }
 
     public void findBook() {
-        isAbleDo = false;
-        checkBookExist();
-        if (isAbleDo) {
+        if (checkBookExist()) {
             System.out.println("Какую книгу вы хотите найти? [Введите название]");
             console.nextLine();
             name = console.nextLine();
