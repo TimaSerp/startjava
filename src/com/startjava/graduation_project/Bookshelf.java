@@ -27,30 +27,22 @@ public class Bookshelf {
     public void showBookshelf() {
         System.out.println("\nСостояние книжной полки: ");
         for (int i = 0; i < bookshelf.length; i++) {
-            if (bookshelf[i].getName() == null) {
-                System.out.print("_");
-            } else {
-                System.out.print("|" + (i + 1) + "|");
-            }
+            String bookshelfCondition = bookshelf[i].getName() == null ? "_" : "|" + (i + 1) + "|";
+            System.out.print(bookshelfCondition);
             System.out.print(" ");
         }
         System.out.println();
         for (Book book : bookshelf) {
-            if (book.getName() == null) {
-                System.out.println("<                                           >");
-            } else {
-                System.out.println("< " + book.getName() + ", " + book.getAuthor() + ", " + book.getYear() + " >");
-            }
+            String bookshelfCondition = book.getName() == null ? "<                                           >" :
+                    "< " + book.getName() + ", " + book.getAuthor() + ", " + book.getYear() + " >";
+            System.out.println(bookshelfCondition);
         }
     }
 
     public void showBookshelfShort() {
         for (int i = 0; i < bookshelf.length; i++) {
-            if (bookshelf[i].getName() == null) {
-                System.out.print("_" + (i + 1) + "_");
-            } else {
-                System.out.print("_|" + (i + 1) + "|_");
-            }
+            String bookshelfCondition = bookshelf[i].getName() == null ? "_" + (i + 1) + "_" : "|" + (i + 1) + "|";
+            System.out.print(bookshelfCondition);
         }
     }
 
@@ -164,9 +156,7 @@ public class Bookshelf {
     public void checkBookNum() {
         int bookSum = 0;
         for (Book book : bookshelf) {
-            if (book.getName() != null) {
-                bookSum++;
-            }
+            int checkBookNum = book.getName() != null ? bookSum++: bookSum;
         }
         System.out.println("На полке " + bookSum + " книг (-и) и " + (10 - bookSum) + " свободных мест.");
     }
