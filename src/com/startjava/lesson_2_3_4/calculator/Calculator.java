@@ -7,34 +7,38 @@ public class Calculator {
     private char sign;
     private int b;
     private int result;
+    private String numsAndSign;
     
-    public Calculator(int a, char sign, int b) {
+    public Calculator(String numsAndSign) {
+        String[] mathExpression = numsAndSign.split(" ");
+        a = Integer.parseInt(mathExpression[0]);
+        sign = mathExpression[1].charAt(0);
+        b = Integer.parseInt(mathExpression[2]);
+    }
+
+    public int calculate() {
         switch(sign) {
             case '+':
                 result = Math.addExact(a, b);
-                break;
+                return result;
             case '-':
                 result = Math.subtractExact(a, b);
-                break;
+                return result;
             case '/':
                 result = Math.floorDiv(a, b);
-                break;
+                return result;
             case '*':
                 result = Math.multiplyExact(a, b);
-                break;
+                return result;
             case '^':
                 result = (int) Math.pow(a, b);
-                break;
+                return result;
             case '%':
                 result = a % b;
-                break;
+                return result;
             default:
                 System.out.println("Вы ввели несуществующую команду");
-                return;
+                return 0;
         }
-    }
-
-    public int resultCalculate() {
-        return result;
     }
 }

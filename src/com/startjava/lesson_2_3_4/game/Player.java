@@ -4,54 +4,23 @@ import java.util.Arrays;
 
 public class Player {
     private String name;
-    private int[] numbers1 = new int[10];
-    private int[] numbers2 = new int[10];
+    private int[] numbers = new int[20];
 
     public String getName() {
         return name;
     }
 
-    public void setNumbers1(int num, int i) {
-        numbers1[i] = num;
+    public void setNumber(int num, int i) {
+        numbers[i] = num;
     }
 
-    public void setNumbers2(int num, int i) {
-        numbers2[i] = num;
+    public int[] getNumber() {
+        return numbers;
     }
 
     public Player(String name) {
         this.name = name;
     }
 
-    public void printArray1() {
-        for (int i = 0; i < numbers1.length; i++) {
-            if (numbers1[i] == 0) {
-                int[] numbers1Copy = Arrays.copyOf(numbers1, i);
-                for (int number : numbers1Copy) { System.out.print(number + " "); }
-                Arrays.fill(numbers1, 0, i, 0);
-                return;
-            }
-        }
-        int[] numbers1Copy = Arrays.copyOf(numbers1, numbers1.length);
-        for (int number : numbers1Copy) { System.out.print(number + " "); }
-        Arrays.fill(numbers1, 0);
-        return;
-    }
-
-    public void printArray2() {
-        for (int i = 0; i < numbers2.length; i++) {
-            if (numbers2[i] == 0) {
-                int[] numbers2Copy = Arrays.copyOf(numbers2, i);
-                for (int number : numbers2Copy) { System.out.print(number + " "); }
-                Arrays.fill(numbers2, 0, i, 0);
-                return;
-            }
-        }
-        int[] numbers2Copy = Arrays.copyOf(numbers2, numbers2.length);
-        for (int number : numbers2Copy) { System.out.print(number + " "); }
-        Arrays.fill(numbers2, 0);
-        return;
-    }
-
-
+    public void clearArray(int i) { Arrays.fill(numbers, 0, i, 0); }
 }
