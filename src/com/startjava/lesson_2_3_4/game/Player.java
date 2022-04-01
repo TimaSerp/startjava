@@ -27,26 +27,30 @@ public class Player {
         for (int i = 0; i < numbers1.length; i++) {
             if (numbers1[i] == 0) {
                 int[] numbers1Copy = Arrays.copyOf(numbers1, i);
-                for (int number: numbers1Copy) {
-                    System.out.print(number + " ");
-                }
+                for (int number : numbers1Copy) { System.out.print(number + " "); }
                 Arrays.fill(numbers1, 0, i, 0);
-                break;
+                return;
             }
         }
+        int[] numbers1Copy = Arrays.copyOf(numbers1, numbers1.length);
+        for (int number : numbers1Copy) { System.out.print(number + " "); }
+        Arrays.fill(numbers1, 0);
+        return;
     }
 
     public void printArray2() {
         for (int i = 0; i < numbers2.length; i++) {
             if (numbers2[i] == 0) {
                 int[] numbers2Copy = Arrays.copyOf(numbers2, i);
-                for (int number: numbers2Copy) {
-                    System.out.print(number + " ");
-                }
+                for (int number : numbers2Copy) { System.out.print(number + " "); }
                 Arrays.fill(numbers2, 0, i, 0);
-                break;
+                return;
             }
         }
+        int[] numbers2Copy = Arrays.copyOf(numbers2, numbers2.length);
+        for (int number : numbers2Copy) { System.out.print(number + " "); }
+        Arrays.fill(numbers2, 0);
+        return;
     }
 
 
