@@ -72,6 +72,4 @@ public class GuessNumber {
             playerX.clearArray(arrayLength);
         }
     }
-
-
 }
