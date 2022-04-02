@@ -56,18 +56,16 @@ public class GuessNumber {
 
     private void printArray() {
         for (int i = 0; i <= 1; i++) {
-            int arrayLength = 0;
+            int arrayLength = 10;
             playerX = i == 0 ? player1 : player2;
             System.out.println("\nЧисла игрока " + playerX.getName());
             for (int j = 0; j < 10; j++) {
                 if (playerX.getNumber()[j] == 0) {
+                    arrayLength = j + 1;
                     break;
+                } else {
+                    System.out.print(playerX.getNumber()[j] + " ");
                 }
-                arrayLength++;
-            }
-
-            for (int j = 0; j < arrayLength; j++) {
-                System.out.print(playerX.getNumber()[j] + " ");
             }
             playerX.clearArray(arrayLength);
         }
