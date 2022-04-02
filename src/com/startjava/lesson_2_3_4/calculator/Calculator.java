@@ -6,35 +6,28 @@ public class Calculator {
     private int a;
     private char sign;
     private int b;
-    private int result;
-    private String numsAndSign;
     
-    public Calculator(String numsAndSign) {
-        String[] mathExpression = numsAndSign.split(" ");
-        a = Integer.parseInt(mathExpression[0]);
-        sign = mathExpression[1].charAt(0);
-        b = Integer.parseInt(mathExpression[2]);
+    public Calculator(String mathExpression) {
+        String[] mathExpressionArray = mathExpression.split(" ");
+        a = Integer.parseInt(mathExpressionArray[0]);
+        sign = mathExpressionArray[1].charAt(0);
+        b = Integer.parseInt(mathExpressionArray[2]);
     }
 
     public int calculate() {
         switch(sign) {
             case '+':
-                result = Math.addExact(a, b);
-                return result;
+                return Math.addExact(a, b);
             case '-':
-                result = Math.subtractExact(a, b);
-                return result;
+                return Math.subtractExact(a, b);
             case '/':
-                result = Math.floorDiv(a, b);
-                return result;
+                return Math.floorDiv(a, b);
             case '*':
-                result = Math.multiplyExact(a, b);
-                return result;
+                return Math.multiplyExact(a, b);
             case '^':
-                result = (int) Math.pow(a, b);
-                return result;
+                return (int) Math.pow(a, b);
             case '%':
-                result = a % b;
+                int result = a % b;
                 return result;
             default:
                 System.out.println("Вы ввели несуществующую команду");
