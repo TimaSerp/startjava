@@ -27,8 +27,8 @@ public class GuessNumber {
             }
         }
         printPlayerAttempts();
-        player1.clearArray();
-        player2.clearArray();
+        player1.clearArray(attempts);
+        player2.clearArray(attempts);
     }
 
     private boolean determineWinner() {
@@ -37,12 +37,13 @@ public class GuessNumber {
             currentPlayer = i == 0 ? player1 : player2;
             System.out.println("\nИгрок " + currentPlayer.getName() + " делает свой ход.");
             playerNum = console.nextInt();
-            if (currentPlayer.setNum(playerNum, attempts)) {
+            if (!currentPlayer.setNum(playerNum, attempts)) {
+                System.out.println("Ошибка. Введите число в диапазоне (0, 100]");
                 i--;
             } else if (playerNum == randomNum) {
-                    System.out.print("\nИгрок " + currentPlayer.getName() + " угадал число " + randomNum);
-                    System.out.println(" с " + (attempts + 1) + "-й попытки");
-                    return true;
+                System.out.print("\nИгрок " + currentPlayer.getName() + " угадал число " + randomNum);
+                System.out.println(" с " + (attempts + 1) + "-й попытки");
+                return true;
             } else {
                 String answer = playerNum > randomNum ? "больше" : "меньше";
                 System.out.print("Данное число " + answer + " того, что загадал компьютер");
@@ -58,8 +59,9 @@ public class GuessNumber {
         for (int i = 0; i <= 1; i++) {
             currentPlayer = i == 0 ? player1 : player2;
             System.out.println("\nЧисла игрока " + currentPlayer.getName());
-            for (int playerNum: currentPlayer.getNum()) {
-                System.out.print(playerNum + " ");
+            for (int num: currentPlayer.getNums(attempts)) {
+                if (num == 0) { break; }
+                System.out.print(num + " ");
             }
         }
     }
