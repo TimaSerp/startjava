@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 public class Player {
     private String name;
-    private int[] numbers = new int[10];
+    private int[] nums = new int[10];
+    private int arrayLength;
 
     public Player(String name) {
         this.name = name;
@@ -14,20 +15,29 @@ public class Player {
         return name;
     }
 
-    public void setNumber(int num, int i) {
+    public boolean setNum(int num, int attempt) {
         if (num < 1 || num > 100) {
             System.out.println("Ошибка. Введите число в диапазоне (0, 100]");
+            return true;
         } else {
-            numbers[i] = num;
+            nums[attempt] = num;
+            return false;
         }
     }
 
-    public int[] getNumber() {
-        int[] numbers1 = Arrays.copyOf(numbers, numbers.length);
-        return numbers1;
+    public int[] getNum() {
+        arrayLength = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                break;
+            } else {
+                arrayLength++;
+            }
+        };
+        return Arrays.copyOf(nums, arrayLength);
     }
 
-    public void clearArray(int i) {
-        Arrays.fill(numbers, 0, i, 0);
+    public void clearArray() {
+        Arrays.fill(nums, 0, arrayLength, 0);
     }
 }

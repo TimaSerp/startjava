@@ -27,8 +27,7 @@ public class Calculator {
             case '^':
                 return (int) Math.pow(a, b);
             case '%':
-                int result = a % b;
-                return result;
+                return a % b;
             default:
                 System.out.println("Вы ввели несуществующую команду");
                 return 0;

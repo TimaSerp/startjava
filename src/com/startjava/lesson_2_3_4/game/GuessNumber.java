@@ -1,73 +1,66 @@
 package com.startjava.lesson_2_3_4.game;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumber {
     private Scanner console = new Scanner(System.in);
     private int randomNum;
-    private int playerNum;
     private Player player1;
     private Player player2;
-    private int iterrationStep;
-    private Player playerX;
+    private int attempts;
+    private Player currentPlayer;
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
     }
 
-    public void guessNumber() {
+    public void guessNum() {
         Random random = new Random();
         randomNum = random.nextInt(100) + 1;
         System.out.println("В игре участвуют " + player1.getName() + " и " + player2.getName());
         System.out.println("У вас есть по 10 попыток.");
-        for (iterrationStep = 0; iterrationStep < 10; iterrationStep++) {
-            if (checkWinPlayer()) {
+        for (attempts = 0; attempts < 10; attempts++) {
+            if (determineWinner()) {
                 break;
             }
         }
-        printArray();
+        printPlayerAttempts();
+        player1.clearArray();
+        player2.clearArray();
     }
 
-    private boolean checkWinPlayer() {
+    private boolean determineWinner() {
+        int playerNum;
         for (int i = 0; i <= 1; i++) {
-            playerX = i == 0 ? player1 : player2;
-            System.out.println("\nИгрок " + playerX.getName() + " делает свой ход.");
+            currentPlayer = i == 0 ? player1 : player2;
+            System.out.println("\nИгрок " + currentPlayer.getName() + " делает свой ход.");
             playerNum = console.nextInt();
-            playerX.setNumber(playerNum, iterrationStep);
-            if (playerNum == randomNum) {
-                System.out.print("\nИгрок " + playerX.getName() + " угадал число " + randomNum);
-                System.out.println(" с " + (iterrationStep + 1) + "-й попытки");
-                return true;
-            } else if (playerNum < 1 || playerNum > 100) {
+            if (currentPlayer.setNum(playerNum, attempts)) {
                 i--;
+            } else if (playerNum == randomNum) {
+                    System.out.print("\nИгрок " + currentPlayer.getName() + " угадал число " + randomNum);
+                    System.out.println(" с " + (attempts + 1) + "-й попытки");
+                    return true;
             } else {
                 String answer = playerNum > randomNum ? "больше" : "меньше";
                 System.out.print("Данное число " + answer + " того, что загадал компьютер");
             }
-            if (iterrationStep == 9) {
-                System.out.println("\nУ игрока " + playerX.getName() + " закончились попытки");
+            if (attempts == 9) {
+                System.out.println("\nУ игрока " + currentPlayer.getName() + " закончились попытки");
             }
         }
         return false;
     }
 
-    private void printArray() {
+    private void printPlayerAttempts() {
         for (int i = 0; i <= 1; i++) {
-            int arrayLength = 10;
-            playerX = i == 0 ? player1 : player2;
-            System.out.println("\nЧисла игрока " + playerX.getName());
-            for (int j = 0; j < 10; j++) {
-                if (playerX.getNumber()[j] == 0) {
-                    arrayLength = j + 1;
-                    break;
-                } else {
-                    System.out.print(playerX.getNumber()[j] + " ");
-                }
+            currentPlayer = i == 0 ? player1 : player2;
+            System.out.println("\nЧисла игрока " + currentPlayer.getName());
+            for (int playerNum: currentPlayer.getNum()) {
+                System.out.print(playerNum + " ");
             }
-            playerX.clearArray(arrayLength);
         }
     }
 }
