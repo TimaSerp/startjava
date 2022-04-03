@@ -8,4 +8,5 @@ CREATE TABLE Jaegers (
 	status TEXT,
 	origin TEXT,
 	launch INTEGER,
-	killKaiju INTEGER);
+	killKaiju INTEGER
+);
